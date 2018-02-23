@@ -46,4 +46,19 @@ class Project
     located_project
   end
 
+  def volunteers
+    volunteers = []
+    located_volunteers = DB.exec("SELECT * FROM volunteers;")
+    located_volunteers.each do |volunteer|
+      id = volunteer.fetch("id").to_i
+      name = volunteer.fetch("name")
+      project_id = volunteer.fetch('project_id').to_i
+      if project_id.==self.id
+        volunteers.push(Volunteer.new({:id => id, :name => name, :project_id => project_id}))
+        binding.pry
+      end
+    end
+    return volunteers
+  end
+
 end # project
