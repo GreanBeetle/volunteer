@@ -55,10 +55,14 @@ class Project
       project_id = volunteer.fetch('project_id').to_i
       if project_id.==self.id
         volunteers.push(Volunteer.new({:id => id, :name => name, :project_id => project_id}))
-        binding.pry
       end
     end
     return volunteers
+  end
+
+  def update(project)
+    @title = project[:title]
+    DB.exec("UPDATE projects SET title = ('#{@title}') WHERE id = ('#{@id}') ;")
   end
 
 end # project
