@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <h1>Black Ink</h1>
+  <p><i>A 501(c)(3) for writers</i></p>
+</div>
+    <div class="well">
+      <h2>Create New Project</h2>
+      <br>
+      <form class="form-group" action="/home" method="post">
+        <input name="title" class="form-control" type="text" placeholder= "PROJECT TITLE">
+        <br>
+        <button type="submit" name="submit" class="btn btn-warning">ADD PROJECT</button>
+      </form>
+    </div> <!-- well -->
+    <br>
+    <div class="well">
+      <h2>Current Projects</h2>
+      <br>
+      <% @projects.each do |project| %>
+        <h4><a href="/project/<%= project.id()%>"><%= project.title %></a></h4>
+        <hr>
+      <% end %>
+    </div>
