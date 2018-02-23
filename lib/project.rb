@@ -22,4 +22,8 @@ class Project
     binding.pry
   end
 
+  def ==(new_project)
+    self.title.==(new_project.title)
+  end
+
 end # project
