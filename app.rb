@@ -36,6 +36,13 @@ get('/project/:id/change') do
   erb(:project)
 end
 
+get('/project/:id/delete') do
+  id = params[:id].to_i
+  @project = Project.find(id)
+  @project.delete
+  erb(:delete)
+end
+
 # post('/project/:id/change') do
 #   @title = params[:new_title]
 #   id = params[:id].to_i
