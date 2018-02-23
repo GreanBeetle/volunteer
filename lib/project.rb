@@ -36,4 +36,14 @@ class Project
     return projects
   end
 
+  def self.find(id)
+    located_project = nil
+    Project.all.each do |project|
+      if project.id.==(id)
+        located_project = project
+      end
+    end
+    located_project
+  end
+
 end # project
