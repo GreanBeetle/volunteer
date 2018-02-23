@@ -25,6 +25,7 @@ get('/project/:id') do
   id = params[:id].to_i
   @project = Project.find(id)
   @title = @project.title
+  @volunteers = Volunteer.all
   erb(:project)
 end
 
@@ -33,6 +34,7 @@ get('/project/:id/change') do
   @project = Project.find(id)
   @title = params[:new_title]
   @project.update({:title => @title, :id => id})
+  @volunteers = Volunteer.all
   erb(:project)
 end
 
@@ -43,11 +45,35 @@ get('/project/:id/delete') do
   erb(:delete)
 end
 
-# post('/project/:id/change') do
-#   @title = params[:new_title]
-#   id = params[:id].to_i
-#   @project = Project.find(id)
-#   binding.pry
-#   # @project.update({:title => @title, :id => id})
-#   erb(:project)
+post('/project/:id/volunteer') do
+  project_id = params[:id].to_i
+  volunteer_name = params[:volunteer]
+  @project = Project.find(project_id)
+  @title = @project.title
+  @volunteer = Volunteer.new({:name => volunteer_name, :project_id => project_id, :id => nil})
+  @volunteer.save
+  @volunteers = Volunteer.all
+  erb(:project)
+end
+
+get('/volunteer/:id') do
+  volunteer_id = params[:id].to_i
+  @volunteer = Volunteer.find(volunteer_id)
+  @name = @volunteer.name
+  erb(:volunteer)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # end

@@ -1,3 +1,4 @@
+<br>
 <div class="jumbotron" style="text-align:center">
   <h2><%= @title %></h2>
 </div>
@@ -8,7 +9,7 @@
       <h2>Change Title</h2>
       <br>
       <form class="form-group" action="/project/<%= @project.id()%>/change" method="get">
-        <input name="new_title" class="form-control" type="text" placeholder= "NEW TITLE">
+        <input name="new_title" class="form-control" type="text" placeholder= "NEW TITLE" style="text-align:center">
         <br>
         <button type="submit" name="submit" class="btn btn-success">CHANGE</button>
       </form>
@@ -21,3 +22,26 @@
     </div> <!-- col -->
   </div> <!-- row -->
 </div> <!-- well -->
+
+<div class="well" style="text-align:center">
+  <h2>Add Volunteer to "<%= @title %>"</h2>
+  <br>
+  <form class="form-group" action="/project/<%= @project.id()%>/volunteer" method="post">
+    <input name="volunteer" class="form-control" type="text" placeholder= "NEW VOLUNTEER" style="text-align:center">
+    <br>
+    <button type="submit" name="submit" class="btn btn-success">Add Volunteer</button>
+  </form>
+  <br>
+  <h2>Volunteers for this Project</h2>
+  <br>
+  <% @volunteers.each do |volunteer| %>
+    <% if volunteer.project_id == @project.id %>
+      <h4><a href="/volunteer/<%= volunteer.id()%>"><%= volunteer.name %></a></h4>
+      <hr>
+    <% end %>
+  <% end %>
+</div> <!-- well -->
+
+<div style="text-align:center">
+  <a href="/">HOME</a>
+</div>
