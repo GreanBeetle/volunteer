@@ -43,7 +43,7 @@ class Project
         located_project = project
       end
     end
-    located_project
+    return located_project
   end
 
   def volunteers
