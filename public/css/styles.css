@@ -3,12 +3,22 @@
   font-size: 100%;
 }
 
-.jumbotron {
+.jumbotron, .well {
 background: linear-gradient(to right, #c2e59c, #64b3f4);
 color: black;
+border: none;
 }
 
 #death {
   font-family: 'Nanum Brush Script', cursive;
   font-size: 100%;
+}
+
+#input {
+  width: 200px;
+  margin: auto;
+}
+
+body, html {
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
 }
