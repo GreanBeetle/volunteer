@@ -1,0 +1,14 @@
+* {
+  font-family: 'Nanum Brush Script', cursive;
+  font-size: 100%;
+}
+
+.jumbotron {
+background: linear-gradient(to right, #c2e59c, #64b3f4);
+color: black;
+}
+
+#death {
+  font-family: 'Nanum Brush Script', cursive;
+  font-size: 100%;
+}
